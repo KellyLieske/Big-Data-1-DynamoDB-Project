@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>View Appointments</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/bootstrap.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="container">
+		<h1>View Appointments
+		</h1>
+		<h3>Today's Appointments </h3>
+		
+		<ul th:each="app : ${appList[0]}">
+			 <li style="display:inline" th:text="${app.date + ' , ' + app.time + ' : ' + app.reasonForVisit + ' 	'} "> </li>
+			 <a style="display:inline" th:href="@{/delete/{date}/{time}(date=${app.date},time=${app.time})}">	Delete</a>
+			 <a style="display:inline" th:href="@{/update/{date}/{time}(date=${app.date},time=${app.time})}">Update</a>
+			 <ul><li th:text="${app.patient.name + ' , ' + app.patient.birthday} " ></li></ul>
+			
+		</ul>
+		<h3>Future Appointments </h3>
+		<ul th:each="app : ${appList[1]}">
+			 <li style="display:inline" th:text="${app.date + ' , ' + app.time + ' : ' + app.reasonForVisit  + ' 	'} "> </li>
+			 <a style="display:inline" th:href="@{/delete/{date}/{time}(date=${app.date},time=${app.time})}">	Delete</a>
+			 <a style="display:inline" th:href="@{/update/{date}/{time}(date=${app.date},time=${app.time})}">Update</a>
+			 <ul><li th:text="${app.patient.name + ' , ' + app.patient.birthday} " ></li></ul>
+			
+		</ul>
+			 
+	
+		<h3>Past Appointments </h3>
+		<ul th:each="app : ${appList[2]}">
+			 <li style="display:inline" th:text="${app.date + ' , ' + app.time +  ' : ' + app.reasonForVisit  + ' 	' }"> </li>
+			 <a style="display:inline" th:href="@{/delete/{date}/{time}(date=${app.date},time=${app.time})}">	Delete</a>
+			 <a style="display:inline" th:href="@{/update/{date}/{time}(date=${app.date},time=${app.time})}">Update</a>
+			 <ul><li th:text="${app.patient.name + ' , ' + app.patient.birthday} " ></li></ul>
+			
+		</ul>
+		
+		
+    </div>
+</body>
+</html>

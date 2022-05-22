@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Schedule Appointment</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="/bootstrap.css" rel="stylesheet"/>
+</head>
+<body><div class="container">
+	<h1>Dr. Adams Office,  Adult General Care
+	</h1>
+	<h2> Please fill out the form below to create an appointment
+	</h2>
+   </div>
+    <div class = "container">
+    <form action = "#" th:action="@{/greeting}" th:object =" ${app}"method="post">
+     <div class="form-group">
+    <label for="date">Appointment Date</label>
+    <input type="date" class="form-control" th:field = "*{date}" id= "Date" >
+    <label for="Time">Time of appointment</label>
+    <input class="form-control" type="time"   th:field = "*{time}"  id="Time" >
+  <label for="Reason">What is the reason for the visit?</label>
+  <input class="form-control" type="text" th:field = "*{reasonForVisit}" id = "Reason" >
+  
+   <label for="Name">Patient Name?</label>
+  <input class="form-control" type="text" th:field = "*{patient.name}" id = "Name" >
+  <label for="Birthday">Patient Birthday</label>
+  <input class="form-control" type="date" th:field = "*{patient.birthday}" id = "Birthday" >
+  <label for="Address">Patient Address</label>
+  <input class="form-control" type="text" th:field = "*{patient.address}" id = "Address" >
+  <label for="Age">Patient Age</label>
+  <input class="form-control" type="number" th:field = "*{patient.Age}" id = "Age" >
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+    	
+    	
+    </form>
+    </div>
+</body>
+</html>
